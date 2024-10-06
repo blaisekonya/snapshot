@@ -37,7 +37,7 @@ watch(
     >
       <TuneButton
         :loading="web3.authLoading"
-        class="flex items-center"
+        class="flex items-center border-none"
         data-testid="button-account-menu"
       >
         <AvatarUser
@@ -45,12 +45,6 @@ watch(
           size="20"
           class="-ml-1 -mr-1 sm:mr-2 md:mr-2 lg:mr-2 xl:mr-2"
         />
-        <span
-          v-if="profile?.name || profile?.ens"
-          class="hidden sm:block max-w-[120px] truncate"
-          v-text="profile.name || profile.ens"
-        />
-        <span v-else class="hidden sm:block" v-text="shorten(web3Account)" />
       </TuneButton>
     </MenuAccount>
   </template>
@@ -61,9 +55,9 @@ watch(
     :aria-label="$t('connectWallet')"
     data-testid="button-connect-wallet"
     @click="modalAccountOpen = true"
+    class="border-none p-2"
   >
-    <span class="hidden sm:block" v-text="$t('connectWallet')" />
-    <i-ho-login class="-ml-2 -mr-[11px] block align-text-bottom sm:hidden" />
+    <i-ho-login class="block align-text-bottom" />
   </TuneButton>
 
   <teleport to="#modal">

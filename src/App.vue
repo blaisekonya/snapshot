@@ -15,13 +15,6 @@ const showBanner = computed(() => {
   return showInPages.includes(route.name as string) && !bannerClosed.value;
 });
 
-const navItems = [
-  { name: 'Home', route: '/' },
-  { name: 'Explore', route: '/explore' },
-  { name: 'Create', route: '/setup' },
-  { name: 'Govern', route: '/worldassociation.eth' }
-];
-
 const isActive = (path: string) => route.path === path;
 </script>
 
@@ -82,14 +75,40 @@ const isActive = (path: string) => route.path === path;
     class="fixed bottom-0 left-0 right-0 bg-skin-bg border-t border-skin-border sm:hidden"
   >
     <ul class="flex justify-around items-center h-14">
-      <li v-for="item in navItems" :key="item.name">
+      <li>
         <router-link
-          :to="item.route"
+          to="/"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-primary': isActive(item.route) }"
+          :class="{ 'text-primary': isActive('/') }"
         >
-          <i :class="[item.icon, 'text-xl']"></i>
-          <span class="text-xs mt-1">{{ item.name }}</span>
+          <i-ho-home />
+        </router-link>
+      </li>
+      <li>
+        <router-link
+          to="/explore"
+          class="flex flex-col items-center p-2"
+          :class="{ 'text-primary': isActive('/explore') }"
+        >
+          <i-ho-search />
+        </router-link>
+      </li>
+      <li>
+        <router-link
+          to="/setup"
+          class="flex flex-col items-center p-2"
+          :class="{ 'text-primary': isActive('/setup') }"
+        >
+          <i-ho-plus />
+        </router-link>
+      </li>
+      <li>
+        <router-link
+          to="/worldassociation.eth"
+          class="flex flex-col items-center p-2"
+          :class="{ 'text-primary': isActive('/worldassociation.eth') }"
+        >
+          <i-ho-globe />
         </router-link>
       </li>
       <BottomNavAccount />
