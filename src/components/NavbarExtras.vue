@@ -11,11 +11,11 @@ const commitSha =
 const navigationItems = [
   {
     name: 'Explore',
-    link: 'home'
+    link: 'explore'
   },
   {
     name: 'Timeline',
-    link: 'timeline'
+    link: 'home'
   },
   {
     name: 'Create a space',
