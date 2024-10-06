@@ -72,7 +72,7 @@ const isActive = (path: string) => route.path === path;
     </div>
   </div>
   <nav
-    class="fixed bottom-0 left-0 right-0 bg-skin-bg border-t px-3 border-skin-border sm:hidden"
+    class="fixed bottom-0 left-0 right-0 bg-skin-bg border-t px-3 border-skin-border z-50 sm:hidden"
   >
     <ul class="flex justify-between items-center h-14">
       <li>

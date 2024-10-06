@@ -20,12 +20,16 @@ const navigationItems = [
   {
     name: 'Create',
     link: 'setup'
+  },
+  {
+    name: 'Govern',
+    link: 'worldassociation.eth'
   }
 ];
 
 function clickNavigationItem(item: any) {
   if (domain) window.open(`https://snapshot.org/#/${item.link}`, '_blank');
-  else router.push({ name: item.link });
+  else router.push({ path: item.link });
 }
 </script>
 

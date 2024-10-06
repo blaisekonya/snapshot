@@ -68,7 +68,7 @@ async function loadMoreProposals(skip: number) {
 }
 
 async function loadProposals() {
-  if (route.name !== 'home') return;
+  if (route.name !== 'timeline') return;
   loading.value = true;
   const proposals = await getProposals();
   setTimelineProposals(proposals);
