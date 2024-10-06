@@ -68,7 +68,7 @@ async function loadMoreProposals(skip: number) {
 }
 
 async function loadProposals() {
-  if (route.name !== 'timeline') return;
+  if (route.name !== 'home') return;
   loading.value = true;
   const proposals = await getProposals();
   setTimelineProposals(proposals);
@@ -188,7 +188,7 @@ useInfiniteScroll(
           class="p-4 text-center"
         >
           <div class="mb-3">{{ $t('noSpacesJoined') }}</div>
-          <router-link :to="{ path: '/' }">
+          <router-link :to="{ path: '/explore' }">
             <TuneButton tabindex="-1">{{ $t('joinSpaces') }}</TuneButton>
           </router-link>
         </div>

@@ -70,15 +70,15 @@ watch(
     <div class="mt-[6px] px-[10px]">
       <BaseButtonRound
         v-tippy="{
-          content: 'Timeline',
+          content: 'Explore',
           placement: 'right',
           delay: [750, 0],
           touch: ['hold', 500]
         }"
         size="40px"
-        @click="router.push({ name: 'timeline' })"
+        @click="router.push({ name: 'explore' })"
       >
-        <BaseIcon size="20" name="feed" />
+        <BaseIcon size="20" name="snapshot" />
       </BaseButtonRound>
     </div>
     <SidebarSpacesSkeleton
