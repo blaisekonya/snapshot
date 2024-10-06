@@ -17,11 +17,6 @@ const searchOptions = computed(() => [
     extras: { selected: route.query.filter === 'spaces' }
   },
   {
-    text: t('networks'),
-    action: 'networks',
-    extras: { selected: route.query.filter === 'networks' }
-  },
-  {
     text: t('strategiesPage'),
     action: 'strategies',
     extras: { selected: route.query.filter === 'strategies' }
