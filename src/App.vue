@@ -14,6 +14,15 @@ const showBanner = computed(() => {
   const showInPages = ['home', 'timeline'];
   return showInPages.includes(route.name as string) && !bannerClosed.value;
 });
+
+const navItems = [
+  { name: 'Home', route: '/' },
+  { name: 'Explore', route: '/explore' },
+  { name: 'Create', route: '/setup' },
+  { name: 'Govern', route: '/worldassociation.eth' }
+];
+
+const isActive = (path: string) => route.path === path;
 </script>
 
 <template>
@@ -66,15 +75,26 @@ const showBanner = computed(() => {
           </KeepAlive>
         </router-view>
       </div>
-      <footer
-        v-if="route.name === 'home' || route.name === 'terms-and-conditions'"
-        class="mt-auto"
-      >
-        <TheFooter />
-      </footer>
       <div id="action-bar" />
     </div>
   </div>
+  <nav
+    class="fixed bottom-0 left-0 right-0 bg-skin-bg border-t border-skin-border sm:hidden"
+  >
+    <ul class="flex justify-around items-center h-14">
+      <li v-for="item in navItems" :key="item.name">
+        <router-link
+          :to="item.route"
+          class="flex flex-col items-center p-2"
+          :class="{ 'text-primary': isActive(item.route) }"
+        >
+          <i :class="[item.icon, 'text-xl']"></i>
+          <span class="text-xs mt-1">{{ item.name }}</span>
+        </router-link>
+      </li>
+      <BottomNavAccount />
+    </ul>
+  </nav>
   <TheFlashNotification />
   <TheModalNotification />
 </template>

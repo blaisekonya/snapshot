@@ -39,7 +39,9 @@ watch(
           />
         </div>
         <div :key="web3Account" class="flex space-x-2">
-          <NavbarAccount />
+          <div class="hidden sm:block">
+            <NavbarAccount />
+          </div>
 
           <NavbarNotifications v-if="web3Account && !domain" />
 
