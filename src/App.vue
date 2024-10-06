@@ -54,7 +54,7 @@ const isActive = (path: string) => route.path === path;
         >
           <i-ho-speakerphone class="shrink-0" />
           <div class="leading-6">
-            Public preview. Available for demo and test purposes.
+            Public preview. Available for demonstration and test purposes.
           </div>
         </a>
         <button class="xs:absolute xs:right-3" @click="bannerClosed = true">
