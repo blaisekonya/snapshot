@@ -1,4 +1,17 @@
 const connectors = {
+  walletlink: {
+    id: 'walletlink',
+    name: 'Coinbase Wallet',
+    network: '1',
+    options: {
+      appName: 'World Association',
+      darkMode: false,
+      chainId: 1,
+      ethJsonrpcUrl: `${import.meta.env.VITE_BROVIDER_URL}/1`
+    },
+    icon: 'ipfs://QmbJKEaeMz6qR3DmJSTxtYtrZeQPptVfnnYK72QBsvAw5q',
+    hidden: false
+  },
   injected: {
     id: 'injected',
     name: 'MetaMask'
@@ -37,19 +50,6 @@ const connectors = {
     },
     icon: 'ipfs://QmZRVqHpgRemw13aoovP2EaQdVtjzXRaQGQZsCLXWaNn9x'
   },
-  walletlink: {
-    id: 'walletlink',
-    name: 'Coinbase Wallet',
-    network: '1',
-    options: {
-      appName: 'Snapshot',
-      darkMode: false,
-      chainId: 1,
-      ethJsonrpcUrl: `${import.meta.env.VITE_BROVIDER_URL}/1`
-    },
-    icon: 'ipfs://QmbJKEaeMz6qR3DmJSTxtYtrZeQPptVfnnYK72QBsvAw5q',
-    hidden: false
-  },
   portis: {
     id: 'portis',
     name: 'Portis',
@@ -58,12 +58,14 @@ const connectors = {
       dappId: '3eb93706-c71d-456b-b4eb-322ea27f7d48',
       network: 'mainnet'
     },
-    icon: 'ipfs://QmNuLXa47xSrDNKRfpPNhoFTuoztvtWCcwGnPpT5MXJWMb'
+    icon: 'ipfs://QmNuLXa47xSrDNKRfpPNhoFTuoztvtWCcwGnPpT5MXJWMb',
+    hidden: true
   },
   stargazer: {
     id: 'stargazer',
     name: 'Stargazer',
-    icon: 'ipfs://bafkreiapdizo36f3yeg7g6l46f7ahbbkyo4otufnfyqri6louysr3grpzy'
+    icon: 'ipfs://bafkreiapdizo36f3yeg7g6l46f7ahbbkyo4otufnfyqri6louysr3grpzy',
+    hidden: true
   },
   gnosis: {
     id: 'gnosis',
@@ -74,7 +76,8 @@ const connectors = {
   kaikas: {
     id: 'kaikas',
     name: 'Kaikas',
-    icon: 'ipfs://QmXD4kkxKzXKbbBu3zAzZ279Sm91JhxCDAwSypyzxwe2Hj'
+    icon: 'ipfs://QmXD4kkxKzXKbbBu3zAzZ279Sm91JhxCDAwSypyzxwe2Hj',
+    hidden: true
   }
 };
 

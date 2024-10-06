@@ -31,7 +31,7 @@ watch(open, () => {
 <template>
   <TuneModal :open="open" @close="$emit('close')">
     <TuneModalTitle as="h4" class="mx-3 mt-3">
-      Connect to the World Association
+      Log in to the World Association
     </TuneModalTitle>
     <!-- TODO: Enable when TOS ready and remember to enable disconnect in useApp -->
     <!-- <TuneModalDescription class="mx-3 pb-3">
@@ -59,36 +59,15 @@ watch(open, () => {
             class="flex w-full items-center justify-center"
             data-testid="button-connnect-wallet-injected"
           >
-            <img
-              :src="getIpfsUrl(injected.icon)"
-              height="28"
-              width="28"
-              class="-mt-1 mr-2"
-              :alt="injected.name"
-            />
             {{ injected.name }}
           </TuneButton>
           <TuneButton
             v-else-if="cId !== 'injected' && !connectors[cId].hidden"
             class="flex w-full items-center justify-center gap-2"
           >
-            <img
-              :src="getIpfsUrl(connectors[cId].icon)"
-              height="25"
-              width="25"
-              :alt="connectors[cId].name"
-            />
             <span>{{ connectors[cId].name }}</span>
           </TuneButton>
         </div>
-        <TuneButton
-          v-if="!isShowingAllConnectors"
-          class="flex w-full items-center justify-center gap-1"
-          @click="isShowingAllConnectors = true"
-        >
-          {{ $t('showMore') }}
-          <i-ho-chevron-down class="text-sm text-skin-link" />
-        </TuneButton>
       </div>
     </div>
   </TuneModal>
