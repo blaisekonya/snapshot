@@ -70,7 +70,8 @@ export function useFollowSpace(spaceId: any = {}) {
         await setAlias();
         follow(space);
       } else {
-        const network = process.env.VITE_ENV === 'production' ? 's' : 's-tn';
+        const network =
+          import.meta.env.VITE_ENV === 'production' ? 's' : 's-tn';
 
         if (isFollowing.value) {
           // Also unsubscribe to the notifications if the user leaves the space.
