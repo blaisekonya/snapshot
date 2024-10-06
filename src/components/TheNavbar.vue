@@ -15,20 +15,19 @@ watch(
 
 <template>
   <div>
-    <div class="px-3 sm:px-4">
+    <div class="px-2 sm:px-3">
       <div class="flex items-center py-[12px]">
         <div class="flex flex-auto items-center">
           <BaseButtonRound
             v-if="!domain"
-            class="sm:hidden"
+            class="sm:hidden border-none"
             @click="showSidebar = !showSidebar"
           >
             <i-ho-menu class="text-skin-link" />
           </BaseButtonRound>
           <router-link
-            :to="{ path: '/' }"
-            class="hidden items-center font-extrabold text-skin-primary sm:block"
-            style="font-size: 24px"
+            :to="{ name: 'home' }"
+            class="items-center font-extrabold text-skin-primary ml-2 sm:ml-3 text-lg"
           >
             World Association
           </router-link>
@@ -38,7 +37,7 @@ watch(
             v-text="'testnet'"
           />
         </div>
-        <div :key="web3Account" class="flex space-x-2">
+        <div :key="web3Account" class="flex sm:space-x-2">
           <div class="hidden sm:block">
             <NavbarAccount />
           </div>

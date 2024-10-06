@@ -13,12 +13,6 @@ defineProps<{
 <template>
   <BaseBlock>
     <div class="mb-2 flex items-center">
-      <BaseAvatar
-        v-if="plugin?.icon"
-        class="mr-2"
-        :src="getIpfsUrl(plugin.icon)"
-        size="28"
-      />
       <h3 class="m-0 truncate" v-text="plugin.name" />
       <div class="ml-1">v{{ plugin.version }}</div>
     </div>

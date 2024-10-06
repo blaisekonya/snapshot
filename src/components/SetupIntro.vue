@@ -7,7 +7,7 @@ const emit = defineEmits(['next']);
 
 <template>
   <div>
-    <div class="px-4 md:px-0">
+    <div class="px-4 md:px-0 mb-4">
       {{ $t('header.description') }}
     </div>
 
@@ -19,8 +19,26 @@ const emit = defineEmits(['next']);
         class="float-right mt-4 w-full"
         @click="!web3Account ? (modalAccountOpen = true) : emit('next')"
       >
-        {{ $t('getStarted') }}
+        {{ $t('createASpace') }}
       </TuneButton>
+      <router-link to="/polls.worldassociation.eth">
+        <TuneButton
+          primary
+          class="float-right mt-4 w-full"
+          @click="!web3Account && (modalAccountOpen = true)"
+        >
+          {{ $t('createAPoll') }}
+        </TuneButton>
+      </router-link>
+      <router-link to="/petitions.worldassociation.eth">
+        <TuneButton
+          primary
+          class="float-right mt-4 w-full"
+          @click="!web3Account && (modalAccountOpen = true)"
+        >
+          {{ $t('createAPetition') }}
+        </TuneButton>
+      </router-link>
     </div>
   </div>
 </template>

@@ -10,15 +10,15 @@ const commitSha =
 
 const navigationItems = [
   {
+    name: 'Timeline',
+    link: 'timeline'
+  },
+  {
     name: 'Explore',
     link: 'explore'
   },
   {
-    name: 'Timeline',
-    link: 'home'
-  },
-  {
-    name: 'Create a space',
+    name: 'Create',
     link: 'setup'
   }
 ];
@@ -32,7 +32,7 @@ function clickNavigationItem(item: any) {
 <template>
   <BasePopover>
     <template #button>
-      <BaseButtonRound class="relative">
+      <BaseButtonRound class="relative max-sm:border-none">
         <i-ho-dots-horizontal class="text-skin-link" />
       </BaseButtonRound>
     </template>

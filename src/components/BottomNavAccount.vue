@@ -37,14 +37,10 @@ watch(
     >
       <TuneButton
         :loading="web3.authLoading"
-        class="flex items-center border-none"
+        class="flex items-center border-none p-2"
         data-testid="button-account-menu"
       >
-        <AvatarUser
-          :address="web3Account"
-          size="20"
-          class="-ml-1 -mr-1 sm:mr-2 md:mr-2 lg:mr-2 xl:mr-2"
-        />
+        <AvatarUser :address="web3Account" size="21.59" />
       </TuneButton>
     </MenuAccount>
   </template>
@@ -57,7 +53,7 @@ watch(
     @click="modalAccountOpen = true"
     class="border-none p-2"
   >
-    <i-ho-login class="block align-text-bottom" />
+    <i-ho-user-circle class="block align-text-bottom" />
   </TuneButton>
 
   <teleport to="#modal">

@@ -67,6 +67,20 @@ watch(
         ></div>
       </div>
     </div>
+    <div class="mt-[6px] px-[10px] max-sm:hidden">
+      <BaseButtonRound
+        v-tippy="{
+          content: 'Timeline',
+          placement: 'right',
+          delay: [750, 0],
+          touch: ['hold', 500]
+        }"
+        size="40px"
+        @click="router.push({ name: 'timeline' })"
+      >
+        <BaseIcon size="20" name="feed" />
+      </BaseButtonRound>
+    </div>
     <div class="mt-[6px] px-[10px]">
       <BaseButtonRound
         v-tippy="{
@@ -78,7 +92,7 @@ watch(
         size="40px"
         @click="router.push({ name: 'explore' })"
       >
-        <BaseIcon size="20" name="snapshot" />
+        <BaseIcon size="20" name="search" />
       </BaseButtonRound>
     </div>
     <SidebarSpacesSkeleton
@@ -140,7 +154,7 @@ watch(
     <div class="flex flex-col items-center space-y-2 px-[10px]">
       <BaseButtonRound
         v-tippy="{
-          content: 'Create space',
+          content: 'Create',
           placement: 'right',
           delay: [750, 0],
           touch: ['hold', 500]

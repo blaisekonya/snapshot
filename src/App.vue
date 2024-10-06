@@ -39,7 +39,7 @@ const isActive = (path: string) => route.path === path;
       />
       <div
         id="navbar"
-        class="sticky top-0 z-40 border-b border-skin-border bg-skin-bg"
+        class="sticky top-0 z-40 max-sm:border-b border-skin-border bg-skin-bg"
       >
         <TheNavbar />
       </div>
@@ -72,14 +72,14 @@ const isActive = (path: string) => route.path === path;
     </div>
   </div>
   <nav
-    class="fixed bottom-0 left-0 right-0 bg-skin-bg border-t border-skin-border sm:hidden"
+    class="fixed bottom-0 left-0 right-0 bg-skin-bg border-t px-3 border-skin-border sm:hidden"
   >
-    <ul class="flex justify-around items-center h-14">
+    <ul class="flex justify-between items-center h-14">
       <li>
         <router-link
-          to="/"
+          to="/timeline"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-primary': isActive('/') }"
+          :class="{ 'text-primary': isActive('/timeline') }"
         >
           <i-ho-home />
         </router-link>
@@ -108,7 +108,7 @@ const isActive = (path: string) => route.path === path;
           class="flex flex-col items-center p-2"
           :class="{ 'text-primary': isActive('/worldassociation.eth') }"
         >
-          <i-ho-globe />
+          <i-ho-globe-alt />
         </router-link>
       </li>
       <BottomNavAccount />
