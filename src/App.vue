@@ -61,7 +61,7 @@ const isActive = (path: string) => route.path === path;
           <i-ho-x />
         </button>
       </div>
-      <div id="content" class="pb-6 pt-4">
+      <div id="content" class="pb-[70px] pt-4">
         <router-view v-slot="{ Component }">
           <KeepAlive :include="['ExploreView', 'RankingView']">
             <component :is="Component" :key="route.path" />
