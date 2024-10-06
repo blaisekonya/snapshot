@@ -52,7 +52,7 @@ const showBanner = computed(() => {
         >
           <i-ho-speakerphone class="shrink-0" />
           <div class="leading-6">
-            Snapshot v2 is here! Experience our new and improved interface now.
+            Public preview. Available for demo and test purposes.
           </div>
         </a>
         <button class="xs:absolute xs:right-3" @click="bannerClosed = true">

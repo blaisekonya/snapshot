@@ -62,7 +62,9 @@ watch(
   >
     <div class="w-full" @click="router.push({ name: 'home' })">
       <div class="flex h-[70px] items-center justify-center">
-        <BaseIcon size="35" name="snapshot" class="text-snapshot" />
+        <div
+          class="box-border h-[36px] w-[36px] rounded-full border-[6px] border-skin-primary"
+        ></div>
       </div>
     </div>
     <div class="mt-[6px] px-[10px]">

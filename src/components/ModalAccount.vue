@@ -31,7 +31,7 @@ watch(open, () => {
 <template>
   <TuneModal :open="open" @close="$emit('close')">
     <TuneModalTitle as="h4" class="mx-3 mt-3">
-      Connect to Snapshot
+      Connect to the World Association
     </TuneModalTitle>
     <!-- TODO: Enable when TOS ready and remember to enable disconnect in useApp -->
     <!-- <TuneModalDescription class="mx-3 pb-3">

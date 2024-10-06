@@ -27,10 +27,10 @@ watch(
           </BaseButtonRound>
           <router-link
             :to="{ path: '/' }"
-            class="hidden items-center sm:block"
+            class="hidden items-center font-extrabold text-skin-primary sm:block"
             style="font-size: 24px"
           >
-            snapshot
+            World Association
           </router-link>
           <span
             v-if="env === 'demo'"

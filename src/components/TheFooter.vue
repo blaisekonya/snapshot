@@ -69,7 +69,7 @@ const resourcesTextLinks = [
         class="flex justify-center space-x-[70px] text-center md:w-full md:text-left lg:ml-[60px] lg:justify-start"
       >
         <FooterLinks>
-          <FooterTitle> Snapshot </FooterTitle>
+          <FooterTitle> World Association </FooterTitle>
           <FooterLinksItem
             v-for="item in snapshotTextLinks"
             :key="item.text"
@@ -106,7 +106,7 @@ const resourcesTextLinks = [
     </div>
 
     <div class="whitespace-nowrap text-center opacity-40 md:text-left">
-      © {{ yearNow }} Snapshot Labs.
+      {{ yearNow }} World Association - Powered by Snapshot.
     </div>
   </BaseContainer>
 </template>
