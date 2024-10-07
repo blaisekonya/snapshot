@@ -36,6 +36,8 @@ const spaces = computed(() => {
   return spacesHome.value;
 });
 
+enableSpaceHomeScroll.value = true;
+
 function handleClickMore() {
   loadMoreSpacesHome(queryInput.value);
   enableSpaceHomeScroll.value = true;
