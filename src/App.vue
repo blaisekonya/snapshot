@@ -108,7 +108,7 @@ const isActive = (path: string) => route.path === path;
           class="flex flex-col items-center p-2"
           :class="{ 'text-primary': isActive('/worldassociation.eth') }"
         >
-          <i-ho-globe-alt />
+          <i-ho-globe />
         </router-link>
       </li>
       <BottomNavAccount />
