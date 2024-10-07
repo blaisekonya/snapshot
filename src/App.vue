@@ -5,6 +5,9 @@ const { domain, init, isReady, showSidebar } = useApp();
 const route = useRoute();
 const { restorePendingTransactions } = useTxStatus();
 
+const { modalAccountOpen } = useModal();
+const { web3Account } = useWeb3();
+
 onMounted(async () => {
   await init();
   restorePendingTransactions();
@@ -12,6 +15,14 @@ onMounted(async () => {
 const bannerClosed = useStorage('snapshot.v2-banner-closed', false);
 const showBanner = computed(() => {
   return !bannerClosed.value;
+});
+const showAbout = computed(() => {
+  const showInPages = [
+    '/worldassociation.eth',
+    '/worldassociation.eth/about',
+    '/worldassociation.eth/settings'
+  ];
+  return showInPages.includes(route.path as string);
 });
 
 const isActive = (path: string) => route.path === path;
@@ -59,6 +70,48 @@ const isActive = (path: string) => route.path === path;
         <button class="xs:absolute xs:right-3" @click="bannerClosed = true">
           <i-ho-x />
         </button>
+      </div>
+      <div
+        class="flex flex-col max-w-5xl mx-auto sm:flex-row sm:gap-5 sm:px-[30px]"
+      >
+        <div
+          v-if="showAbout"
+          class="relative items-center justify-center max-sm:mt-2 sm:border border-skin-border rounded-xl gap-2 mb-2 p-4 pt-3"
+        >
+          <div>
+            <h2 class="mb-2">Global Voter ID</h2>
+          </div>
+          <div>
+            Create your Global Voter ID by verifying your identity through
+            facial scanning.
+          </div>
+          <TuneButton
+            primary
+            class="float-right mt-4 w-full"
+            @click="!web3Account && (modalAccountOpen = true)"
+          >
+            Claim your voter ID
+          </TuneButton>
+        </div>
+        <div
+          v-if="showAbout"
+          class="relative items-center justify-center sm:border border-skin-border rounded-xl gap-2 mb-2 p-4 pt-3"
+        >
+          <div>
+            <h2 class="mb-2">Global Basic Income</h2>
+          </div>
+          <div>
+            Get our official currency, the world drachma, flow into your account
+            every second.
+          </div>
+          <TuneButton
+            primary
+            class="float-right mt-4 w-full"
+            @click="!web3Account && (modalAccountOpen = true)"
+          >
+            Set up basic income
+          </TuneButton>
+        </div>
       </div>
       <div id="content" class="pb-[70px] pt-4">
         <router-view v-slot="{ Component }">
