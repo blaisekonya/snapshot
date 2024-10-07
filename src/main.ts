@@ -15,6 +15,20 @@ import i18n from '@/helpers/i18n';
 import router from '@/router';
 import '@/assets/css/main.scss';
 import App from '@/App.vue';
+import { WagmiPlugin } from '@wagmi/vue';
+import { http, createConfig } from '@wagmi/vue';
+import { base } from '@wagmi/vue/chains';
+import { QueryClient, VueQueryPlugin } from '@tanstack/vue-query';
+import '@zkmelabs/widget/dist/style.css';
+
+const config = createConfig({
+  chains: [base],
+  transports: {
+    [base.id]: http()
+  }
+});
+
+const queryClient = new QueryClient();
 
 const parentUrl =
   window.location != window.parent.location
@@ -48,6 +62,8 @@ app
   .use(head)
   .use(i18n)
   .use(router)
+  .use(WagmiPlugin, { config })
+  .use(VueQueryPlugin, { queryClient })
   .use(LockPlugin, options)
   .use(VueTippy, {
     defaultProps: { delay: [400, null] },

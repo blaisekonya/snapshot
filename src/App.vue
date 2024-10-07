@@ -91,13 +91,7 @@ const isActive = (path: string) => route.path === path;
             Create your Global Voter ID by verifying your identity through
             facial scanning.
           </div>
-          <TuneButton
-            primary
-            class="mt-4"
-            @click="!web3Account && (modalAccountOpen = true)"
-          >
-            Claim your voter ID
-          </TuneButton>
+          <ButtonClaimID />
         </div>
         <div
           v-if="showAbout"

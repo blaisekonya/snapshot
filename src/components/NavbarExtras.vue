@@ -18,7 +18,7 @@ const navigationItems = [
     link: '/explore'
   },
   {
-    name: 'Experiment',
+    name: 'Create',
     link: '/setup'
   },
   {
