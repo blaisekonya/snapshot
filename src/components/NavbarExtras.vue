@@ -18,11 +18,11 @@ const navigationItems = [
     link: 'explore'
   },
   {
-    name: 'Create',
+    name: 'Experiment',
     link: 'setup'
   },
   {
-    name: 'Govern',
+    name: 'Organization',
     link: 'worldassociation.eth'
   }
 ];
