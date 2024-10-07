@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, toRaw } from 'vue';
 import { ZkMeWidget } from '@zkmelabs/widget';
 import { Engine } from '@thirdweb-dev/engine';
 import { CHAIN, GLOBAL_VOTER_ID_ZKME_ADDRESS } from '../helpers/constants';
@@ -131,13 +131,17 @@ const launchWidget = () => {
   if (widget.value) {
     try {
       console.log('Widget before launch:', widget.value);
-      // Add a check for the launch method
-      if (typeof widget.value.launch !== 'function') {
+      const widgetInstance = toRaw(widget.value);
+      console.log('Unwrapped widget:', widgetInstance);
+
+      if (typeof widgetInstance.launch !== 'function') {
         throw new Error('Widget launch method is not a function');
       }
-      widget.value.launch();
+
+      widgetInstance.launch();
       console.log('Widget launched successfully');
-      widget.value.on('meidFinished', async results => {
+
+      widgetInstance.on('meidFinished', async results => {
         console.log('meidFinished event received:', results);
         if (results.isGrant) {
           await mintMembership();
