@@ -553,10 +553,10 @@
     "orRegisterNewEns": "Or register a new domain:",
     "demoTestnetEnsMessage": "To create a test space you need an ENS domain on {network}.",
     "toCreateASpace": "To create a space, you first need an ENS domain. Enter one below and follow the ENS registration instructions.",
-    "createASpace": "Create a space, poll, or petiton",
+    "experiment": "Experiment with global democracy",
     "registerEnsButton": "Register",
     "supportedEnsTLDs": "Supported domain endings",
-    "helpDocsAndDiscordLinks": "Not sure how to setup your space? Learn more in the {docs} or contact support on {help}.",
+    "helpDocsAndDiscordLinks": "Not sure how to set up your own space? Learn more in the {docs} or contact support at the {help}.",
     "setSpaceController": "Space controller",
     "setSpaceControllerExists": "The snapshot text-record for this domain has already been set. Choose edit to change it, otherwise you can skip to the next step.",
     "setSpaceControllerInfo": " The space controller is the account that will be able to manage the space settings. Additional space controllers (admins) can be added later.",
@@ -893,18 +893,22 @@
   "metaInfo": {
     "home": {
       "title": "World Association",
-      "description": "The World Association app is a free, open-source platform that allows people to experiment with global democracy."
+      "description": "The World Association provides a free, open-source platform for global democracy."
     },
     "setup": {
-      "title": "Create a space",
-      "description": "The World Association app is a free, open-source platform for global democracy. Create your own space, poll, or petiton and start experimenting with global governance!"
+      "title": "Create - World Association",
+      "description": "The World Association provides a free, open-source platform for global governance where anyone can create anonymous yet verifiably democratic polls and petitions."
+    },
+    "explore": {
+      "title": "Explore - World Association",
+      "description": "Explore the World Association platform and see what's happening in the community."
     },
     "timeline": {
-      "title": "Timeline",
+      "title": "World Association",
       "description": "See what's happening in the World Association community."
     },
     "playground": {
-      "title": "Playground",
+      "title": "Playground - World Association",
       "description": "{strategy}"
     },
     "strategy": {
@@ -1003,7 +1007,7 @@
   "joinCommunity": "Join the community",
   "header": {
     "title": "Where decisions get made",
-    "description": "The World Association app is a free, open-source platform for global democracy. Create your own space, poll, or petiton and start experimenting with global governance!"
+    "description": "The World Association provides a free, open-source platform for global governance where anyone can create anonymous yet verifiably democratic polls and petitions."
   },
   "aboutPage": {
     "description": "The World Association app is a global democracy platform that makes it easy to create and vote on proposals - all without spending a fortune on fees! Plus, our flexible system supports various voting types and strategies, so you can tailor the voting process to your needs.",

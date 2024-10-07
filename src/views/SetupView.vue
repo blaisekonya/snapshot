@@ -116,7 +116,7 @@ onMounted(() => {
     </template>
     <template #content-right>
       <div class="px-4 md:px-0">
-        <h1 class="mb-4" v-text="$t('setup.createASpace')" />
+        <h1 class="mb-4" v-text="$t('setup.experiment')" />
       </div>
       <template v-if="web3Account || currentStep === Step.GETTING_STARTED">
         <SetupIntro

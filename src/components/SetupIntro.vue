@@ -14,13 +14,6 @@ const emit = defineEmits(['next']);
     <SetupMessageHelp />
 
     <div class="px-4 md:px-0">
-      <TuneButton
-        primary
-        class="float-right mt-4 w-full"
-        @click="!web3Account ? (modalAccountOpen = true) : emit('next')"
-      >
-        {{ $t('createASpace') }}
-      </TuneButton>
       <router-link to="/polls.worldassociation.eth">
         <TuneButton
           primary
@@ -39,6 +32,13 @@ const emit = defineEmits(['next']);
           {{ $t('createAPetition') }}
         </TuneButton>
       </router-link>
+      <TuneButton
+        primary
+        class="float-right mt-4 w-full"
+        @click="!web3Account ? (modalAccountOpen = true) : emit('next')"
+      >
+        {{ $t('createASpace') }}
+      </TuneButton>
     </div>
   </div>
 </template>

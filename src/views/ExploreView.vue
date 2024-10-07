@@ -3,10 +3,10 @@ import { useInfiniteScroll } from '@vueuse/core';
 
 useMeta({
   title: {
-    key: 'metaInfo.home.title'
+    key: 'metaInfo.explore.title'
   },
   description: {
-    key: 'metaInfo.home.description'
+    key: 'metaInfo.explore.description'
   }
 });
 
