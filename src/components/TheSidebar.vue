@@ -81,6 +81,20 @@ watch(
         <BaseIcon size="20" name="search" />
       </BaseButtonRound>
     </div>
+    <div class="mt-[6px] px-[10px]">
+      <BaseButtonRound
+        v-tippy="{
+          content: 'Organization',
+          placement: 'right',
+          delay: [750, 0],
+          touch: ['hold', 500]
+        }"
+        size="40px"
+        @click="router.push({ path: '/worldassociation.eth' })"
+      >
+        <BaseIcon size="20" name="earth" />
+      </BaseButtonRound>
+    </div>
     <SidebarSpacesSkeleton
       v-if="spaces.length === 0 && (isLoadingSpaces || loadingFollows)"
     />

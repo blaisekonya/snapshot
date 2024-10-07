@@ -15,21 +15,21 @@ const navigationItems = [
   },
   {
     name: 'Explore',
-    link: 'explore'
+    link: '/explore'
   },
   {
     name: 'Experiment',
-    link: 'setup'
+    link: '/setup'
   },
   {
     name: 'Organization',
-    link: 'worldassociation.eth'
+    link: '/worldassociation.eth'
   }
 ];
 
 function clickNavigationItem(item: any) {
   if (domain) window.open(`https://snapshot.org/#/${item.link}`, '_blank');
-  else router.push({ path: item.link });
+  else router.replace({ path: item.link });
 }
 </script>
 
