@@ -11,8 +11,7 @@ onMounted(async () => {
 });
 const bannerClosed = useStorage('snapshot.v2-banner-closed', false);
 const showBanner = computed(() => {
-  const showInPages = ['home', 'timeline'];
-  return showInPages.includes(route.name as string) && !bannerClosed.value;
+  return !bannerClosed.value;
 });
 
 const isActive = (path: string) => route.path === path;
@@ -79,7 +78,7 @@ const isActive = (path: string) => route.path === path;
         <router-link
           to="/"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-primary': isActive('/') }"
+          :class="{ 'text-skin-primary': isActive('/') }"
         >
           <i-ho-home />
         </router-link>
@@ -88,7 +87,7 @@ const isActive = (path: string) => route.path === path;
         <router-link
           to="/explore"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-primary': isActive('/explore') }"
+          :class="{ 'text-skin-primary': isActive('/explore') }"
         >
           <i-ho-search />
         </router-link>
@@ -97,7 +96,7 @@ const isActive = (path: string) => route.path === path;
         <router-link
           to="/setup"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-primary': isActive('/setup') }"
+          :class="{ 'text-skin-primary': isActive('/setup') }"
         >
           <i-ho-plus />
         </router-link>
@@ -106,7 +105,7 @@ const isActive = (path: string) => route.path === path;
         <router-link
           to="/worldassociation.eth"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-primary': isActive('/worldassociation.eth') }"
+          :class="{ 'text-skin-primary': isActive('/worldassociation.eth') }"
         >
           <i-ho-globe />
         </router-link>
