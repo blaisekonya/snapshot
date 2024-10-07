@@ -77,9 +77,9 @@ const isActive = (path: string) => route.path === path;
     <ul class="flex justify-between items-center h-14">
       <li>
         <router-link
-          to="/timeline"
+          to="/"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-primary': isActive('/timeline') }"
+          :class="{ 'text-primary': isActive('/') }"
         >
           <i-ho-home />
         </router-link>

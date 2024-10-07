@@ -11,7 +11,7 @@ const commitSha =
 const navigationItems = [
   {
     name: 'Timeline',
-    link: 'timeline'
+    link: '/'
   },
   {
     name: 'Explore',

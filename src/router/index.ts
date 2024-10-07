@@ -116,8 +116,7 @@ if (domain) {
   // If accessed through localhost or snapshot.org, add all routes and
   // prefix space routes with space domain (/:key).
   routes.push(
-    { path: '/', name: 'home', component: SetupView },
-    { path: '/timeline', name: 'timeline', component: TimelineView },
+    { path: '/', name: 'home', component: TimelineView },
     {
       path: '/setup/:ens?',
       name: 'setup',
