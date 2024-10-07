@@ -72,14 +72,20 @@ const isActive = (path: string) => route.path === path;
         </button>
       </div>
       <div
+        v-if="showAbout"
+        class="flex w-full max-w-5xl mx-auto sm:flex-row p-4 sm:px-[30px]"
+      >
+        <h2>Organization</h2>
+      </div>
+      <div
         class="flex flex-col max-w-5xl mx-auto sm:flex-row sm:gap-5 sm:px-[30px]"
       >
         <div
           v-if="showAbout"
-          class="relative items-center justify-center max-sm:mt-2 sm:border border-skin-border rounded-xl gap-2 mb-2 p-4 pt-3"
+          class="relative items-center justify-center border-y sm:border border-skin-border sm:rounded-xl gap-2 p-4 pt-3"
         >
           <div>
-            <h2 class="mb-2">Global Voter ID</h2>
+            <h3 class="mb-2">Global Voter ID</h3>
           </div>
           <div>
             Create your Global Voter ID by verifying your identity through
@@ -87,7 +93,7 @@ const isActive = (path: string) => route.path === path;
           </div>
           <TuneButton
             primary
-            class="float-right mt-4 w-full"
+            class="mt-4"
             @click="!web3Account && (modalAccountOpen = true)"
           >
             Claim your voter ID
@@ -95,10 +101,10 @@ const isActive = (path: string) => route.path === path;
         </div>
         <div
           v-if="showAbout"
-          class="relative items-center justify-center sm:border border-skin-border rounded-xl gap-2 mb-2 p-4 pt-3"
+          class="relative items-center justify-center border-b sm:border border-skin-border sm:rounded-xl gap-2 p-4 pt-3"
         >
           <div>
-            <h2 class="mb-2">Global Basic Income</h2>
+            <h3 class="mb-2">Global Basic Income</h3>
           </div>
           <div>
             Get our official currency, the world drachma, flow into your account
@@ -106,14 +112,14 @@ const isActive = (path: string) => route.path === path;
           </div>
           <TuneButton
             primary
-            class="float-right mt-4 w-full"
+            class="mt-4"
             @click="!web3Account && (modalAccountOpen = true)"
           >
             Set up basic income
           </TuneButton>
         </div>
       </div>
-      <div id="content" class="pb-[70px] pt-4">
+      <div id="content" class="pb-[70px] pt-5">
         <router-view v-slot="{ Component }">
           <KeepAlive :include="['ExploreView', 'RankingView']">
             <component :is="Component" :key="route.path" />
