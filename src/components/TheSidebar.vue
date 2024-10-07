@@ -67,20 +67,6 @@ watch(
         ></div>
       </div>
     </div>
-    <div class="mt-[6px] px-[10px] max-sm:hidden">
-      <BaseButtonRound
-        v-tippy="{
-          content: 'Timeline',
-          placement: 'right',
-          delay: [750, 0],
-          touch: ['hold', 500]
-        }"
-        size="40px"
-        @click="router.push({ name: 'timeline' })"
-      >
-        <BaseIcon size="20" name="feed" />
-      </BaseButtonRound>
-    </div>
     <div class="mt-[6px] px-[10px]">
       <BaseButtonRound
         v-tippy="{
