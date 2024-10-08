@@ -47,7 +47,7 @@ const isActive = (path: string) => route.path === path;
         :class="{ hidden: !showSidebar }"
         @click="showSidebar = false"
       />
-      <div id="navbar" class="bg-skin-bg">
+      <div id="navbar" class="border-b border-skin-border bg-skin-bg">
         <TheNavbar />
       </div>
       <div
