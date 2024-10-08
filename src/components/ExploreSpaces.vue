@@ -73,6 +73,9 @@ onMounted(() => {
 
 <template>
   <div class="relative">
+    <div class="w-full max-[1072px]:mx-4 max-w-[964px] mx-auto">
+      <h2 class="mt-1 mb-2" v-text="$t('spaces')" />
+    </div>
     <BaseContainer
       class="mb-4 flex flex-col flex-wrap items-center xs:flex-row md:flex-nowrap"
     >
