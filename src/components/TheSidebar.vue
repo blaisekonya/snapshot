@@ -67,7 +67,21 @@ watch(
         ></div>
       </div>
     </div>
-    <div class="mt-[6px] px-[10px]">
+    <div class="mt-[6px] px-[10px] max-sm:hidden">
+      <BaseButtonRound
+        v-tippy="{
+          content: 'Explore',
+          placement: 'right',
+          delay: [750, 0],
+          touch: ['hold', 500]
+        }"
+        size="40px"
+        @click="router.push({ name: 'home' })"
+      >
+        <BaseIcon size="20" name="home" />
+      </BaseButtonRound>
+    </div>
+    <div class="mt-[6px] px-[10px] max-sm:hidden">
       <BaseButtonRound
         v-tippy="{
           content: 'Explore',
@@ -81,7 +95,7 @@ watch(
         <BaseIcon size="20" name="search" />
       </BaseButtonRound>
     </div>
-    <div class="mt-[8px] px-[10px]">
+    <div class="mt-[8px] px-[10px] max-sm:hidden">
       <BaseButtonRound
         v-tippy="{
           content: 'Organization',
@@ -95,6 +109,11 @@ watch(
         <BaseIcon size="20" name="earth" />
       </BaseButtonRound>
     </div>
+
+    <div class="flex w-[60px] items-center justify-center sm:pt-[15px]">
+      <div class="h-[1px] w-[20px] bg-skin-border" />
+    </div>
+
     <SidebarSpacesSkeleton
       v-if="spaces.length === 0 && (isLoadingSpaces || loadingFollows)"
     />
@@ -147,11 +166,7 @@ watch(
       </template>
     </draggable>
 
-    <div class="flex w-[60px] items-center justify-center py-[15px]">
-      <div class="h-[1px] w-[20px] bg-skin-border" />
-    </div>
-
-    <div class="flex flex-col items-center space-y-2 px-[10px]">
+    <div class="flex flex-col items-center space-y-2 pt-[15px] px-[10px]">
       <BaseButtonRound
         v-tippy="{
           content: 'Create',
