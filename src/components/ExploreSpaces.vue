@@ -73,7 +73,7 @@ onMounted(() => {
 
 <template>
   <div class="relative">
-    <div class="w-full max-[1072px]:mx-4 max-w-[964px] mx-auto">
+    <div class="w-full max-[1072px]:px-4 max-w-[964px] min-[1072px]:mx-auto">
       <h2 class="mt-1 mb-2" v-text="$t('spaces')" />
     </div>
     <BaseContainer
