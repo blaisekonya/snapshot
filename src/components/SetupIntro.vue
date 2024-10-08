@@ -7,7 +7,7 @@ const emit = defineEmits(['next']);
 
 <template>
   <div>
-    <div class="px-4 md:px-0 mb-4">
+    <div class="px-4 md:px-0 mb-3">
       {{ $t('header.description') }}
     </div>
 

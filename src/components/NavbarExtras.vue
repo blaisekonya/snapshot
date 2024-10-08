@@ -53,7 +53,7 @@ function clickNavigationItem(item: any) {
             v-for="item in navigationItems"
             :key="item.name"
             as="button"
-            class="block w-full cursor-pointer py-1 text-left text-xl text-skin-link hover:!text-skin-link hover:!opacity-100 group-hover:text-skin-text group-hover:opacity-70"
+            class="block w-full cursor-pointer py-[6px] text-left text-xl text-skin-link hover:!text-skin-link hover:!opacity-100 group-hover:text-skin-text group-hover:opacity-70"
             @click="clickNavigationItem(item)"
           >
             {{ item.name }}
