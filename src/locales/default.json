@@ -85,7 +85,7 @@
   "removeDelegation": "Remove delegation",
   "confirmRemove": "Are you sure you want to remove your delegation to",
   "removeSpace": "for the space {0}",
-  "noVotingPower": "Oops, it seems you don't have any voting power at block {blockNumber}.",
+  "noVotingPower": "It seems you don't have any voting power at block {blockNumber}.",
   "quorumReached": "quorum reached",
   "options": "Option(s)",
   "votingPower": "Your voting power",
@@ -126,9 +126,9 @@
   "predictedImpact": "Predicted impact",
   "marketSymbol": "{0} market",
   "twoChoicesRequired": "Two choices are required for this plugin.",
-  "noResultsFound": "Oops, we can't find any results",
+  "noResultsFound": "We can't find any results",
   "createFirstProposal": "Let's create your first proposal",
-  "noSpacesJoined": "Oops, you haven't joined any spaces yet",
+  "noSpacesJoined": "You haven't joined any spaces yet",
   "addFavorites": "Add favorites",
   "createdBy": "By {0}",
   "startIn": "start {0}",
@@ -651,7 +651,7 @@
     "youDidIt": "You did it!",
     "copied": "Copied!",
     "proposalDeleted": "Proposal deleted",
-    "somethingWentWrong": "Oops, something went wrong!",
+    "somethingWentWrong": "Something went wrong!",
     "saved": "Saved!",
     "delegationSuccess": "Delegation successful",
     "delegationRemoved": "Delegation removed",
@@ -662,7 +662,7 @@
     "ensSet": "ENS text record was successfully set",
     "transactionSent": "Transaction sent",
     "emailPreferencesUpdated": "Email preferences updated",
-    "delegationAdded": "Well done. Delegate was successfully added",
+    "delegationAdded": "Delegate was successfully added",
     "spaceReactivated": "The space has been reactivated"
   },
   "explore": {
@@ -735,7 +735,7 @@
     "paramPlaceholder": "Validation parameters",
     "information": "The type of validation used to determine if a user can create a proposal. (Enforced on all future proposals)",
     "executionError": "There was an error on our side and we could not verify if you are eligible to create a proposal. This is often due to a misconfigured voting validation or an unresponsive API involved in the validation.",
-    "notValidMessage": "Oops, you don't seem to be eligible to submit a proposal.",
+    "notValidMessage": "You don't seem to be eligible to submit a proposal.",
     "onlyMemberMessage": "You need to be a core member of the space in order to submit a proposal.",
     "notConnectedMessage": "You need to connect your wallet in order to submit a proposal.",
     "any": {
@@ -771,7 +771,7 @@
     "paramPlaceholder": "Validation parameters",
     "information": "The type of validation used to determine if a user can vote. (Enforced on all future proposals)",
     "executionError": "There was an error on our side and we could not verify if you are eligible to vote. This is often due to a misconfigured voting validation or an unresponsive API involved in the validation.",
-    "notValidMessage": "Oops, you don't seem to be eligible to vote on this proposal.",
+    "notValidMessage": "You don't seem to be eligible to vote on this proposal.",
     "any": {
       "label": "Anyone can vote",
       "description": "Anyone with voting power can cast a vote."
@@ -879,7 +879,7 @@
     "cancel": "Cancel",
     "comeBack": "Come back after voting is complete to see how this proposal is progressing!",
     "confirmSignature": "Signing this message will allow us to authorize your request to update the progress of your proposal.",
-    "wentWrong": "Oops something went wrong.",
+    "wentWrong": "Something went wrong.",
     "voting": "Voting",
     "soon": "Soon"
   },
