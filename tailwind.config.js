@@ -55,13 +55,13 @@ module.exports = {
       space: ['SpaceMono']
     },
     fontSize: {
-      '2xl': ['36px', '50px'],
-      xl: ['28px', '44px'],
-      lg: ['24px', '32px'],
-      md: ['20px', '28px'],
-      base: ['18px', '24px'],
-      sm: ['16px'],
-      xs: ['14px']
+      '2xl': ['35px', '50px'],
+      xl: ['27px', '44px'],
+      lg: ['23px', '32px'],
+      md: ['19px', '28px'],
+      base: ['17px', '24px'],
+      sm: ['15px'],
+      xs: ['13px']
     },
     boxShadow: {
       lg: '2px 4px 9px var(--shadow-color)',
