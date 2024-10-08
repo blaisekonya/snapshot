@@ -18,25 +18,32 @@ const isSpaces = computed(
   () => !route.query.filter || route.query.filter === 'spaces'
 );
 const isStrategies = computed(() => route.query.filter === 'strategies');
+const isNetworks = computed(() => route.query.filter === 'networks');
 const isPlugins = computed(() => route.query.filter === 'plugins');
 
 const buttonStr = computed(() => {
   if (isStrategies.value) return t('explore.createStrategy');
+  if (isNetworks.value) return t('explore.addNetwork');
   if (isPlugins.value) return t('explore.createPlugin');
   return '';
 });
 
 const resultsStr = computed(() => {
   if (isStrategies.value) return t('explore.strategies');
+  if (isNetworks.value) return t('explore.networks');
   if (isPlugins.value) return t('explore.plugins');
   return t('explore.results');
 });
 
 const createLink = computed(() => {
   if (isStrategies.value) return 'https://docs.snapshot.org/strategies/create';
+  if (isNetworks.value) return 'https://snapshot.box/#/network';
   if (isPlugins.value) return 'https://docs.snapshot.org/plugins/create';
   return 'https://docs.snapshot.org/strategies/create';
 });
+
+const { filterNetworks, getNetworksSpacesCount, loadingNetworksSpacesCount } =
+  useNetworksFilter();
 
 const { filterPlugins, getPluginsSpacesCount, loadingPluginsSpacesCount } =
   usePlugins();
@@ -45,9 +52,12 @@ const { filterStrategies, getStrategies, isLoadingStrategies } =
   useStrategies();
 const { env } = useApp();
 
+const onlyMainnetNetworks = n => (env === 'production' ? !n.testnet : true);
+
 const items = computed(() => {
   const q = (route.query.q as string) || '';
   if (isStrategies.value) return filterStrategies(q);
+  if (isNetworks.value) return filterNetworks(q).filter(onlyMainnetNetworks);
   if (isPlugins.value) return filterPlugins(q);
   return [];
 });
@@ -56,6 +66,7 @@ watch(
   () => route.query.filter,
   () => {
     if (isStrategies.value) getStrategies();
+    if (isNetworks.value) getNetworksSpacesCount();
     if (isPlugins.value) getPluginsSpacesCount();
   },
   { immediate: true }
@@ -63,6 +74,7 @@ watch(
 
 const loading = computed(() => {
   if (isStrategies.value) return isLoadingStrategies.value;
+  if (isNetworks.value) return loadingNetworksSpacesCount.value;
   if (isPlugins.value) return loadingPluginsSpacesCount.value;
   return false;
 });
@@ -110,7 +122,11 @@ useInfiniteScroll(
     <BaseContainer :slim="true">
       <div class="overflow-hidden">
         <ExploreSkeletonLoading
-          v-if="isLoadingStrategies || loadingPluginsSpacesCount"
+          v-if="
+            isLoadingStrategies ||
+            loadingNetworksSpacesCount ||
+            loadingPluginsSpacesCount
+          "
         />
         <template v-else-if="isStrategies">
           <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -121,6 +137,13 @@ useInfiniteScroll(
             >
               <BaseStrategyItem :strategy="item" />
             </router-link>
+          </div>
+        </template>
+        <template v-else-if="isNetworks">
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div v-for="item in items.slice(0, limit)" :key="item.key">
+              <BaseNetworkItem :network="item" />
+            </div>
           </div>
         </template>
         <template v-else-if="isPlugins">
