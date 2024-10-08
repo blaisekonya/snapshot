@@ -55,11 +55,11 @@ module.exports = {
       space: ['SpaceMono']
     },
     fontSize: {
-      '2xl': ['35px', '48px'],
-      xl: ['27px', '42px'],
-      lg: ['23px', '30px'],
-      md: ['19px', '27px'],
-      base: ['17px', '24px'],
+      '2xl': ['35px', '47px'],
+      xl: ['27px', '37px'],
+      lg: ['23px', '31px'],
+      md: ['19px', '26px'],
+      base: ['17px', '23px'],
       sm: ['15px'],
       xs: ['13px']
     },

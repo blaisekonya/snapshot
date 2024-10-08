@@ -72,7 +72,8 @@ const isActive = (path: string) => route.path === path;
         </button>
       </div>
       <div
-        class="flex flex-col max-w-5xl mx-auto sm:flex-row sm:pt-4 sm:gap-5 sm:px-[30px]"
+        v-if="showAbout"
+        class="flex flex-col max-w-5xl mx-auto sm:flex-row sm:pt-4 sm:gap-4 sm:px-[30px]"
       >
         <div
           v-if="showAbout"
