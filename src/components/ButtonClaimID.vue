@@ -152,7 +152,7 @@ const launchWidget = () => {
       console.log('Widget details:', JSON.stringify(widget.value, null, 2));
       resultDialogContent.value = {
         title: 'Error',
-        description: `Failed to launch the widget: ${
+        description: `Failed to launch widget: ${
           (error as Error).message || 'Unknown error'
         }. Please try again later or contact support.`
       };
