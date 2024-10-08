@@ -22,13 +22,13 @@ const socials = [
     <span v-for="social in socials" :key="social.icon">
       <BaseLink :link="social.link" hide-external-icon>
         <FooterSocialsItem v-if="social.icon === 'github'">
-          <i-s-github class="text-[22px]" />
+          <i-s-github class="text-[20px]" />
         </FooterSocialsItem>
         <FooterSocialsItem v-else-if="social.icon === 'x'">
-          <i-s-x class="text-[22px]" />
+          <i-s-x class="text-[20px]" />
         </FooterSocialsItem>
         <FooterSocialsItem v-else-if="social.icon === 'discord'">
-          <i-s-discord class="text-[22px]" />
+          <i-s-discord class="text-[20px]" />
         </FooterSocialsItem>
       </BaseLink>
     </span>
