@@ -1,8 +1,8 @@
 {
-  "name": "snapshot",
+  "name": "worldshot",
   "version": "0.1.4",
   "license": "MIT",
-  "repository": "snapshot-labs/snapshot",
+  "repository": "blaisekonya/snapshot",
   "scripts": {
     "dev": "vite --port=8080",
     "build": "vite build",
