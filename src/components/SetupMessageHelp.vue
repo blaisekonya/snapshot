@@ -12,11 +12,11 @@ import { SNAPSHOT_HELP_LINK } from '@/helpers/constants';
     <i18n-t keypath="setup.helpDocsAndDiscordLinks" tag="span" scope="global">
       <template #docs>
         <BaseLink link="https://docs.snapshot.org/spaces/create">
-          Snapshot documentation</BaseLink
+          documentation</BaseLink
         >
       </template>
       <template #help>
-        <BaseLink :link="SNAPSHOT_HELP_LINK">Snapshot Help Center</BaseLink>
+        <BaseLink :link="SNAPSHOT_HELP_LINK">Help Center</BaseLink>
       </template>
     </i18n-t>
   </BaseBlock>

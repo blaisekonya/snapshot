@@ -553,7 +553,7 @@
     "orRegisterNewEns": "Or register a new domain:",
     "demoTestnetEnsMessage": "To create a test space you need an ENS domain on {network}.",
     "toCreateASpace": "To create a space, you first need an ENS domain. Enter one below and follow the ENS registration instructions.",
-    "experiment": "Experiment with global democracy",
+    "create": "Create a poll, petition, or space",
     "registerEnsButton": "Register",
     "supportedEnsTLDs": "Supported domain endings",
     "helpDocsAndDiscordLinks": "Not sure how to set up your own space? Learn more in the {docs} or contact support at the {help}.",
