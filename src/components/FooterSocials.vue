@@ -17,7 +17,7 @@ const socials = [
 
 <template>
   <div
-    class="flex items-center justify-center space-x-3 pt-2 md:mt-4 md:justify-start lg:mt-0 lg:justify-end"
+    class="flex items-center justify-center space-x-[20px] pt-2 md:mt-4 md:justify-start lg:mt-0 lg:justify-end"
   >
     <span v-for="social in socials" :key="social.icon">
       <BaseLink :link="social.link" hide-external-icon>
@@ -25,10 +25,10 @@ const socials = [
           <!--<i-s-youtube class="text-[25px]" />-->
         </FooterSocialsItem>
         <FooterSocialsItem v-else-if="social.icon === 'x'">
-          <i-s-x class="text-[23px]" />
+          <i-s-x class="text-[22px]" />
         </FooterSocialsItem>
         <FooterSocialsItem v-else-if="social.icon === 'discord'">
-          <i-s-discord class="text-[23px]" />
+          <i-s-discord class="text-[22px]" />
         </FooterSocialsItem>
       </BaseLink>
     </span>
