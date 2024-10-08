@@ -72,17 +72,11 @@ const isActive = (path: string) => route.path === path;
         </button>
       </div>
       <div
-        v-if="showAbout"
-        class="flex w-full max-w-5xl mx-auto sm:flex-row p-4 sm:px-[30px]"
-      >
-        <h2>Organization</h2>
-      </div>
-      <div
-        class="flex flex-col max-w-5xl mx-auto sm:flex-row sm:gap-5 sm:px-[30px]"
+        class="flex flex-col max-w-5xl mx-auto sm:flex-row sm:pt-4 sm:gap-5 sm:px-[30px]"
       >
         <div
           v-if="showAbout"
-          class="relative items-center justify-center border-y sm:border border-skin-border sm:rounded-xl gap-2 p-4 pt-3"
+          class="relative items-center justify-center border-b sm:border border-skin-border sm:rounded-xl gap-2 p-4 pt-3"
         >
           <div>
             <h3 class="mb-2">Global Voter ID</h3>
@@ -113,7 +107,7 @@ const isActive = (path: string) => route.path === path;
           </TuneButton>
         </div>
       </div>
-      <div id="content" class="pb-[70px] pt-5">
+      <div id="content" class="pb-[70px] pt-4">
         <router-view v-slot="{ Component }">
           <KeepAlive :include="['ExploreView', 'RankingView']">
             <component :is="Component" :key="route.path" />
