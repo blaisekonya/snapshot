@@ -12,7 +12,10 @@ onMounted(async () => {
   await init();
   restorePendingTransactions();
 });
-const bannerClosed = useStorage('worldassociation.v2-banner-closed', false);
+const bannerClosed = useStorage(
+  'worldassociation.sign-up-banner-closed',
+  false
+);
 const showBanner = computed(() => {
   return !bannerClosed.value;
 });
@@ -56,10 +59,13 @@ const isActive = (path: string) => route.path === path;
       >
         <div class="flex gap-2">
           <div class="leading-6">
-            Log in to claim your basic income and experiment with global
+            Sign up to claim your basic income and experiment with global
             democracy.
           </div>
         </div>
+        <button class="xs:absolute xs:right-3" @click="bannerClosed = true">
+          <i-ho-x />
+        </button>
       </div>
       <div
         v-if="showAbout"
