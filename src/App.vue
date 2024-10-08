@@ -47,10 +47,7 @@ const isActive = (path: string) => route.path === path;
         :class="{ hidden: !showSidebar }"
         @click="showSidebar = false"
       />
-      <div
-        id="navbar"
-        class="sticky top-0 z-40 border-b border-skin-border bg-skin-bg"
-      >
+      <div id="navbar" class="bg-skin-bg">
         <TheNavbar />
       </div>
       <div
@@ -153,9 +150,13 @@ const isActive = (path: string) => route.path === path;
         <router-link
           to="/worldassociation.eth"
           class="flex flex-col items-center p-2"
-          :class="{ 'text-skin-primary': isActive('/worldassociation.eth') }"
         >
-          <i-ho-globe />
+          <div
+            class="box-border h-[18px] w-[18px] rounded-full border-[3px] border-skin-link"
+            :class="{
+              'border-skin-primary': isActive('/worldassociation.eth')
+            }"
+          ></div>
         </router-link>
       </li>
       <BottomNavAccount />
