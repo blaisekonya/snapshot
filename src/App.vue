@@ -12,7 +12,7 @@ onMounted(async () => {
   await init();
   restorePendingTransactions();
 });
-const bannerClosed = useStorage('snapshot.v2-banner-closed', false);
+const bannerClosed = useStorage('worldassociation.v2-banner-closed', false);
 const showBanner = computed(() => {
   return !bannerClosed.value;
 });
@@ -55,14 +55,11 @@ const isActive = (path: string) => route.path === path;
         class="relative flex items-center justify-center gap-2 bg-skin-border px-4 py-[10px]"
       >
         <div class="flex gap-2">
-          <i-ho-speakerphone class="shrink-0" />
           <div class="leading-6">
-            Public preview. Available for demonstration and test purposes.
+            Log in to claim your basic income and experiment with global
+            democracy.
           </div>
         </div>
-        <button class="xs:absolute xs:right-3" @click="bannerClosed = true">
-          <i-ho-x />
-        </button>
       </div>
       <div
         v-if="showAbout"
