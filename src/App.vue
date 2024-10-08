@@ -55,7 +55,7 @@ const isActive = (path: string) => route.path === path;
       </div>
       <div
         v-if="showBanner"
-        class="relative flex items-center justify-center gap-2 mb-2 bg-skin-border px-4 py-[10px]"
+        class="relative flex items-center justify-center gap-2 bg-skin-border px-4 py-[10px]"
       >
         <a
           class="flex gap-2"

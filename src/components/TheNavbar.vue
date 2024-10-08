@@ -27,7 +27,7 @@ watch(
           </BaseButtonRound>
           <router-link
             :to="{ name: 'home' }"
-            class="items-center font-extrabold text-skin-primary ml-2 sm:ml-3 text-lg"
+            class="items-center font-extrabold text-skin-primary ml-2 text-lg"
           >
             World Association
           </router-link>

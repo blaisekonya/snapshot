@@ -81,7 +81,7 @@ watch(
         <BaseIcon size="20" name="search" />
       </BaseButtonRound>
     </div>
-    <div class="mt-[6px] px-[10px]">
+    <div class="mt-[8px] px-[10px]">
       <BaseButtonRound
         v-tippy="{
           content: 'Organization',

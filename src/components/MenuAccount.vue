@@ -50,7 +50,7 @@ function handleAction(e) {
         <slot />
       </template>
       <template #item="{ item }">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 py-1">
           <div class="w-[24px]">
             <i-ho-user-circle
               v-if="item.extras.icon === 'profile'"
