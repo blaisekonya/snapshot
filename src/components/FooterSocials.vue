@@ -1,16 +1,16 @@
 <script setup lang="ts">
 const socials = [
   {
-    icon: 'x',
-    link: 'https://x.com/worldassociatio'
-  },
-  {
     icon: 'discord',
     link: 'https://discord.gg/J9A4g6axjR'
   },
   {
-    icon: 'youtube',
-    link: `https://www.youtube.com/channel/UCKiOLUMQNj77m_zhQnfdzsg`
+    icon: 'github',
+    link: `https://github.com/worldassociation`
+  },
+  {
+    icon: 'x',
+    link: 'https://x.com/worldassociatio'
   }
 ];
 </script>
@@ -21,8 +21,8 @@ const socials = [
   >
     <span v-for="social in socials" :key="social.icon">
       <BaseLink :link="social.link" hide-external-icon>
-        <FooterSocialsItem v-if="social.icon === 'youtube'">
-          <!--<i-s-youtube class="text-[25px]" />-->
+        <FooterSocialsItem v-if="social.icon === 'github'">
+          <i-s-github class="text-[22px]" />
         </FooterSocialsItem>
         <FooterSocialsItem v-else-if="social.icon === 'x'">
           <i-s-x class="text-[22px]" />
