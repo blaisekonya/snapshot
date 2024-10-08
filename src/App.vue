@@ -49,7 +49,7 @@ const isActive = (path: string) => route.path === path;
       />
       <div
         id="navbar"
-        class="sticky top-0 z-40 max-sm:border-b border-skin-border bg-skin-bg"
+        class="sticky top-0 z-40 border-b border-skin-border bg-skin-bg"
       >
         <TheNavbar />
       </div>
