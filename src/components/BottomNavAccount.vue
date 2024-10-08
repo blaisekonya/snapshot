@@ -40,7 +40,7 @@ watch(
         class="flex items-center border-none p-2"
         data-testid="button-account-menu"
       >
-        <AvatarUser :address="web3Account" size="21.59" />
+        <AvatarUser :address="web3Account" size="20" />
       </TuneButton>
     </MenuAccount>
   </template>
