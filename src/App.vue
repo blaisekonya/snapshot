@@ -19,14 +19,6 @@ const bannerClosed = useStorage(
 const showBanner = computed(() => {
   return !bannerClosed.value;
 });
-const showAbout = computed(() => {
-  const showInPages = [
-    '/worldassociation.eth',
-    '/worldassociation.eth/about',
-    '/worldassociation.eth/settings'
-  ];
-  return showInPages.includes(route.path as string);
-});
 
 const isActive = (path: string) => route.path === path;
 </script>
@@ -54,7 +46,7 @@ const isActive = (path: string) => route.path === path;
         <TheNavbar />
       </div>
       <div
-        v-if="showBanner"
+        v-if="!web3Account && showBanner"
         class="relative flex items-center justify-center gap-2 bg-skin-border px-4 py-[10px]"
       >
         <div class="flex gap-2">
@@ -66,43 +58,6 @@ const isActive = (path: string) => route.path === path;
         <button class="xs:absolute xs:right-3" @click="bannerClosed = true">
           <i-ho-x />
         </button>
-      </div>
-      <div
-        v-if="showAbout"
-        class="flex flex-col max-w-5xl mx-auto sm:flex-row sm:pt-4 sm:gap-4 sm:px-[30px]"
-      >
-        <div
-          v-if="showAbout"
-          class="relative items-center justify-center border-b sm:border border-skin-border sm:rounded-xl gap-2 p-4 pt-3"
-        >
-          <div>
-            <h3 class="mb-2">Global Voter ID</h3>
-          </div>
-          <div>
-            Create your Global Voter ID by verifying your identity through
-            facial scanning.
-          </div>
-          <ButtonClaimID />
-        </div>
-        <div
-          v-if="showAbout"
-          class="relative items-center justify-center border-b sm:border border-skin-border sm:rounded-xl gap-2 p-4 pt-3"
-        >
-          <div>
-            <h3 class="mb-2">Global Basic Income</h3>
-          </div>
-          <div>
-            Get our official currency, the world drachma, flow into your account
-            every second.
-          </div>
-          <TuneButton
-            primary
-            class="mt-4"
-            @click="!web3Account && (modalAccountOpen = true)"
-          >
-            Set up basic income
-          </TuneButton>
-        </div>
       </div>
       <div id="content" class="pb-[70px] pt-4">
         <router-view v-slot="{ Component }">
