@@ -16,7 +16,7 @@ watch(
 <template>
   <div>
     <div class="px-2 sm:px-3">
-      <div class="flex items-center py-[12px]">
+      <div class="flex items-center py-2 sm:py-[12px]">
         <div class="flex flex-auto items-center">
           <BaseButtonRound
             v-if="!domain"
