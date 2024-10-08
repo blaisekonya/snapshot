@@ -53,7 +53,7 @@ watch(
     @click="modalAccountOpen = true"
     class="border-none p-2"
   >
-    <i-ho-user-circle class="block align-text-bottom" />
+    <i-ho-user-circle class="block align-text-bottom text-[18px]" />
   </TuneButton>
 
   <teleport to="#modal">

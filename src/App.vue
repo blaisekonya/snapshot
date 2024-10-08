@@ -121,7 +121,7 @@ const isActive = (path: string) => route.path === path;
           class="flex flex-col items-center p-2"
           :class="{ 'text-skin-primary': isActive('/') }"
         >
-          <i-ho-home />
+          <i-ho-home class="text-[18px]" />
         </router-link>
       </li>
       <li>
@@ -130,7 +130,7 @@ const isActive = (path: string) => route.path === path;
           class="flex flex-col items-center p-2"
           :class="{ 'text-skin-primary': isActive('/explore') }"
         >
-          <i-ho-search />
+          <i-ho-search class="text-[18px]" />
         </router-link>
       </li>
       <li>
@@ -139,7 +139,7 @@ const isActive = (path: string) => route.path === path;
           class="flex flex-col items-center p-2"
           :class="{ 'text-skin-primary': isActive('/setup') }"
         >
-          <i-ho-plus />
+          <i-ho-plus class="text-[18px]" />
         </router-link>
       </li>
       <li>

@@ -70,7 +70,7 @@ watch(
     <div class="mt-[6px] px-[10px] max-sm:hidden">
       <BaseButtonRound
         v-tippy="{
-          content: 'Explore',
+          content: 'Timeline',
           placement: 'right',
           delay: [750, 0],
           touch: ['hold', 500]
@@ -78,7 +78,7 @@ watch(
         size="40px"
         @click="router.push({ name: 'home' })"
       >
-        <BaseIcon size="20" name="home" />
+        <BaseIcon size="20" name="feed" />
       </BaseButtonRound>
     </div>
     <div class="mt-[6px] px-[10px] max-sm:hidden">
@@ -106,7 +106,9 @@ watch(
         size="40px"
         @click="router.push({ path: '/worldassociation.eth' })"
       >
-        <BaseIcon size="20" name="earth" />
+        <div
+          class="box-border h-[18px] w-[18px] rounded-full border-[3px] border-skin-link"
+        ></div>
       </BaseButtonRound>
     </div>
 
