@@ -553,7 +553,7 @@
     "orRegisterNewEns": "Or register a new domain:",
     "demoTestnetEnsMessage": "To create a test space you need an ENS domain on {network}.",
     "toCreateASpace": "To create a space, you first need an ENS domain. Enter one below and follow the ENS registration instructions.",
-    "create": "Create a poll, petition, or space",
+    "create": "Create a democratic global poll, petition, or space",
     "registerEnsButton": "Register",
     "supportedEnsTLDs": "Supported domain endings",
     "helpDocsAndDiscordLinks": "Not sure how to set up your own space? Learn more in the {docs} or contact support at the {help}.",
@@ -897,7 +897,7 @@
     },
     "setup": {
       "title": "Create - World Association",
-      "description": "The World Association provides a free, open-source platform to create democratic global polls and petitions."
+      "description": "The World Association provides a free, open-source platform for global democracy."
     },
     "explore": {
       "title": "Explore - World Association",
@@ -1007,7 +1007,7 @@
   "joinCommunity": "Join the community",
   "header": {
     "title": "Where decisions get made",
-    "description": "The World Association provides a free, open-source platform to create democratic global polls and petitions."
+    "description": "The World Association provides a free, open-source platform for global democracy."
   },
   "aboutPage": {
     "description": "The World Association app is a global democracy platform that makes it easy to create and vote on proposals - all without spending a fortune on fees! Plus, our flexible system supports various voting types and strategies, so you can tailor the voting process to your needs.",
