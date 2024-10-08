@@ -108,7 +108,10 @@ onUnmounted(() => clearInterval(waitingForRegistrationInterval));
   <div>
     <LoadingRow v-if="isLoading" block />
     <div v-else>
-      <h4 class="mb-2 px-4 md:px-0">{{ $t('setup.domain.title') }}</h4>
+      <SetupMessageHelp />
+
+      <h4 class="my-4 px-4 md:px-0">{{ $t('setup.domain.title') }}</h4>
+
       <BaseMessageBlock
         v-if="env !== 'demo'"
         class="mb-4"

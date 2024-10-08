@@ -11,8 +11,6 @@ const emit = defineEmits(['next']);
       {{ $t('header.description') }}
     </div>
 
-    <SetupMessageHelp />
-
     <div class="px-4 md:px-0">
       <router-link to="/polls.worldassociation.eth">
         <TuneButton
