@@ -209,7 +209,7 @@ useInfiniteScroll(
               params: { key: proposal.space.id, id: proposal.id }
             }"
             show-verified-icon
-            class="border-b border-skin-border transition-colors first:border-t last:border-b-0 md:border-b md:first:border-t-0"
+            class="border-b border-skin-border transition-colors first:border-t md:border-b-0 md:first:border-t-0"
           />
         </div>
 
