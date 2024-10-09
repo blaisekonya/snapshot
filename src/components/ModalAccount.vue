@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { getInjected } from '@snapshot-labs/lock/src/utils';
 import connectors from '@/helpers/connectors';
 
 const props = defineProps<{
@@ -11,15 +10,6 @@ defineEmits(['login', 'close', 'openTerms']);
 const { open } = toRefs(props);
 
 const isShowingAllConnectors = ref(false);
-
-const injected = computed(() => getInjected());
-
-const filteredConnectors = computed(() => {
-  const baseConnectors = ['injected', 'walletconnect', 'walletlink'];
-  if (injected.value?.name === 'Coinbase') connectors.walletlink.hidden = true;
-  if (isShowingAllConnectors.value) return Object.keys(connectors);
-  return Object.keys(connectors).filter(cId => baseConnectors.includes(cId));
-});
 
 watch(open, () => {
   isShowingAllConnectors.value = false;
@@ -33,14 +23,14 @@ watch(open, () => {
     </TuneModalTitle>
     <div>
       <div class="m-3 space-y-2">
-        <div v-for="cId in filteredConnectors" :key="cId" class="block" @click="$emit('login', connectors[cId].id)">
-          <TuneButton v-if="cId === 'injected' && injected" class="flex w-full items-center justify-center"
-            data-testid="button-connnect-wallet-injected">
-            {{ injected.name }}
+        <div class="block" @click="$emit('login', connectors.walletlink.id)">
+          <TuneButton primary class="flex w-full items-center justify-center">
+            Log in
           </TuneButton>
-          <TuneButton v-else-if="cId !== 'injected' && !connectors[cId].hidden"
-            class="flex w-full items-center justify-center gap-2">
-            <span>{{ connectors[cId].name }}</span>
+        </div>
+        <div class="block" @click="$emit('login', connectors.walletlink.id)">
+          <TuneButton class="flex w-full items-center justify-center">
+            Sign up
           </TuneButton>
         </div>
       </div>

@@ -12,7 +12,8 @@ const connectors = {
       overrideIsCoinbaseBrowser: true,
       overrideIsCoinbaseWallet: true,
       overrideIsMetaMask: true,
-      headlessMode: true
+      headlessMode: true,
+      preference: 'all'
     },
     icon: 'ipfs://QmbJKEaeMz6qR3DmJSTxtYtrZeQPptVfnnYK72QBsvAw5q',
     hidden: false
@@ -20,7 +21,8 @@ const connectors = {
   injected: {
     id: 'injected',
     name: 'MetaMask',
-    network: '8453'
+    network: '8453',
+    hidden: true
   },
   walletconnect: {
     id: 'walletconnect',
@@ -54,7 +56,8 @@ const connectors = {
       },
       showQrModal: true
     },
-    icon: 'ipfs://QmZRVqHpgRemw13aoovP2EaQdVtjzXRaQGQZsCLXWaNn9x'
+    icon: 'ipfs://QmZRVqHpgRemw13aoovP2EaQdVtjzXRaQGQZsCLXWaNn9x',
+    hidden: true
   },
   portis: {
     id: 'portis',
