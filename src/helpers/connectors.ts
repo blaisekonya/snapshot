@@ -1,27 +1,33 @@
 const connectors = {
   walletlink: {
     id: 'walletlink',
-    name: 'Coinbase Wallet',
-    network: '1',
+    name: 'Coinbase',
+    network: '8453',
     options: {
       appName: 'World Association',
+      chainId: 8453,
       darkMode: false,
-      ethJsonrpcUrl: `${import.meta.env.VITE_BROVIDER_URL}/1`,
-      enableMobileWalletLink: true
+      jsonRpcUrl: `${import.meta.env.VITE_BROVIDER_URL}/8453`,
+      enableMobileWalletLink: true,
+      overrideIsCoinbaseBrowser: true,
+      overrideIsCoinbaseWallet: true,
+      overrideIsMetaMask: true,
+      headlessMode: true
     },
     icon: 'ipfs://QmbJKEaeMz6qR3DmJSTxtYtrZeQPptVfnnYK72QBsvAw5q',
     hidden: false
   },
   injected: {
     id: 'injected',
-    name: 'MetaMask'
+    name: 'MetaMask',
+    network: '8453'
   },
   walletconnect: {
     id: 'walletconnect',
     name: 'WalletConnect',
-    network: '1',
+    network: '8453',
     options: {
-      projectId: 'e6454bd61aba40b786e866a69bd4c5c6',
+      projectId: 'a4d8b1b6a2bdf901f2c185054c931308',
       chains: [],
       optionalChains: [
         1, 4, 5, 10, 42, 56, 100, 137, 246, 1088, 42161, 73799, 11155111
