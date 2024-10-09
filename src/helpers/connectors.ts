@@ -6,8 +6,8 @@ const connectors = {
     options: {
       appName: 'World Association',
       darkMode: false,
-      chainId: 1,
-      ethJsonrpcUrl: `${import.meta.env.VITE_BROVIDER_URL}/1`
+      ethJsonrpcUrl: `${import.meta.env.VITE_BROVIDER_URL}/1`,
+      enableMobileWalletLink: true
     },
     icon: 'ipfs://QmbJKEaeMz6qR3DmJSTxtYtrZeQPptVfnnYK72QBsvAw5q',
     hidden: false

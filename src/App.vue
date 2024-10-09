@@ -4,8 +4,6 @@ import { useStorage } from '@vueuse/core';
 const { domain, init, isReady, showSidebar } = useApp();
 const route = useRoute();
 const { restorePendingTransactions } = useTxStatus();
-
-const { modalAccountOpen } = useModal();
 const { web3Account } = useWeb3();
 
 onMounted(async () => {

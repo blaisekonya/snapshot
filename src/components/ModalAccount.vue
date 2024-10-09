@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { getInjected } from '@snapshot-labs/lock/src/utils';
 import connectors from '@/helpers/connectors';
-import { getIpfsUrl } from '@/helpers/utils';
 
 const props = defineProps<{
   open: boolean;
@@ -17,7 +16,6 @@ const injected = computed(() => getInjected());
 
 const filteredConnectors = computed(() => {
   const baseConnectors = ['injected', 'walletconnect', 'walletlink'];
-  // If injected is Coinbase, hide WalletLink
   if (injected.value?.name === 'Coinbase') connectors.walletlink.hidden = true;
   if (isShowingAllConnectors.value) return Object.keys(connectors);
   return Object.keys(connectors).filter(cId => baseConnectors.includes(cId));
@@ -33,38 +31,15 @@ watch(open, () => {
     <TuneModalTitle as="h4" class="mx-3 mt-3">
       Log in to the World Association
     </TuneModalTitle>
-    <!-- TODO: Enable when TOS ready and remember to enable disconnect in useApp -->
-    <!-- <TuneModalDescription class="mx-3 pb-3">
-      By connecting, you agree to
-      <a
-        role="button"
-        tabindex="0"
-        class="font-semibold"
-        @click="$emit('openTerms')"
-        @keyup.enter="$emit('openTerms')"
-      >
-        Snapshot Labs' Terms of Service</a
-      >.
-    </TuneModalDescription> -->
     <div>
       <div class="m-3 space-y-2">
-        <div
-          v-for="cId in filteredConnectors"
-          :key="cId"
-          class="block"
-          @click="$emit('login', connectors[cId].id)"
-        >
-          <TuneButton
-            v-if="cId === 'injected' && injected"
-            class="flex w-full items-center justify-center"
-            data-testid="button-connnect-wallet-injected"
-          >
+        <div v-for="cId in filteredConnectors" :key="cId" class="block" @click="$emit('login', connectors[cId].id)">
+          <TuneButton v-if="cId === 'injected' && injected" class="flex w-full items-center justify-center"
+            data-testid="button-connnect-wallet-injected">
             {{ injected.name }}
           </TuneButton>
-          <TuneButton
-            v-else-if="cId !== 'injected' && !connectors[cId].hidden"
-            class="flex w-full items-center justify-center gap-2"
-          >
+          <TuneButton v-else-if="cId !== 'injected' && !connectors[cId].hidden"
+            class="flex w-full items-center justify-center gap-2">
             <span>{{ connectors[cId].name }}</span>
           </TuneButton>
         </div>
