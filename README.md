@@ -1,6 +1,6 @@
 <div align="center">
     <img src="public/icon.svg" height="70" alt="Snapshot Logo">
-    <h1>Snapshot</h1>
+    <h1>World Association</h1>
     <strong>Snapshot is an off-chain gasless multi-governance client with easy to verify and hard to contest results.</strong>
 </div>
 <br>
@@ -61,6 +61,7 @@ Use `http://localhost:8080/#/fabien.eth` for testing your code.
 By default your instance will connect to the hub at `https://testnet.hub.snapshot.org`. To change that (or other values) you can create a `.env.local` and overwrite the values from `.env`.
 
 ## Running service locally with Docker
+
 1. Run `docker build -t snapshot .` to build the image
 2. Run `docker run --name snapshot -p 8080:8080 snapshot` to run the container
 3. Go to `http://localhost:8080/#/fabien.eth` to test your code
