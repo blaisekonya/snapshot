@@ -4,6 +4,7 @@ const { domain, init, isReady, showSidebar } = useApp();
 const route = useRoute();
 const { restorePendingTransactions } = useTxStatus();
 const { web3Account } = useWeb3();
+const { modalAccountOpen } = useModal();
 
 onMounted(async () => {
   await init();
@@ -35,8 +36,8 @@ const isActive = (path: string) => route.path === path;
       <div id="navbar" class="border-b border-skin-border bg-skin-bg">
         <TheNavbar />
       </div>
-      <div v-if="!web3Account && showBanner"
-        class="relative flex items-center justify-center gap-2 bg-skin-border px-4 py-[10px]">
+      <div v-if="!web3Account && showBanner" @click="modalAccountOpen = true"
+        class="relative flex cursor-pointer items-center justify-center gap-2 bg-skin-border px-4 py-[10px]">
         <div class="flex gap-2">
           <div class="leading-6">
             Sign up to claim your basic income and experiment with global
