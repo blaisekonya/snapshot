@@ -16,9 +16,7 @@ const socials = [
 </script>
 
 <template>
-  <div
-    class="flex items-center justify-center space-x-[20px] pt-2 md:mt-4 md:justify-start lg:mt-0 lg:justify-end"
-  >
+  <div class="flex items-center justify-center space-x-[20px] pt-2 md:mt-4 md:justify-start lg:mt-0 lg:justify-end">
     <span v-for="social in socials" :key="social.icon">
       <BaseLink :link="social.link" hide-external-icon>
         <FooterSocialsItem v-if="social.icon === 'github'">
