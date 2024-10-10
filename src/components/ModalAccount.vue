@@ -19,7 +19,7 @@ watch(open, () => {
 <template>
   <TuneModal :open="open" @close="$emit('close')">
     <TuneModalTitle as="h4" class="mx-3 mt-3">
-      Log in to the World Association
+      Sign in to the World Association
     </TuneModalTitle>
     <div>
       <div class="m-3 space-y-2">
