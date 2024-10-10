@@ -1,3 +1,5 @@
+const projectId = 'cc8fce167e9b87d538f58ac46a9f30ba';
+
 const connectors = {
   walletlink: {
     id: 'walletlink',
@@ -7,7 +9,7 @@ const connectors = {
       appName: 'World Association',
       chainId: 8453,
       darkMode: false,
-      jsonRpcUrl: `${import.meta.env.VITE_BROVIDER_URL}/8453`,
+      jsonRpcUrl: `https://rpc.walletconnect.org/v1/?chainId=eip155:8453&projectId=${projectId}`,
       enableMobileWalletLink: true,
       overrideIsCoinbaseBrowser: true,
       overrideIsCoinbaseWallet: true,
@@ -41,18 +43,19 @@ const connectors = {
         'eth_signTypedData_v4'
       ],
       rpcMap: {
-        '1': `${import.meta.env.VITE_BROVIDER_URL}/1`,
-        '4': `${import.meta.env.VITE_BROVIDER_URL}/4`,
-        '5': `${import.meta.env.VITE_BROVIDER_URL}/5`,
-        '10': `${import.meta.env.VITE_BROVIDER_URL}/10`,
-        '42': `${import.meta.env.VITE_BROVIDER_URL}/42`,
-        '56': `${import.meta.env.VITE_BROVIDER_URL}/56`,
-        '100': `${import.meta.env.VITE_BROVIDER_URL}/100`,
-        '137': `${import.meta.env.VITE_BROVIDER_URL}/137`,
-        '246': `${import.meta.env.VITE_BROVIDER_URL}/246`,
-        '42161': `${import.meta.env.VITE_BROVIDER_URL}/42161`,
-        '73799': `${import.meta.env.VITE_BROVIDER_URL}/73799`,
-        '11155111': `${import.meta.env.VITE_BROVIDER_URL}/11155111`
+        '1': `https://rpc.walletconnect.org/v1/?chainId=eip155:1&projectId=${projectId}`,
+        '4': `https://rpc.walletconnect.org/v1/?chainId=eip155:4&projectId=${projectId}`,
+        '5': `https://rpc.walletconnect.org/v1/?chainId=eip155:5&projectId=${projectId}`,
+        '10': `https://rpc.walletconnect.org/v1/?chainId=eip155:10&projectId=${projectId}`,
+        '42': `https://rpc.walletconnect.org/v1/?chainId=eip155:42&projectId=${projectId}`,
+        '56': `https://rpc.walletconnect.org/v1/?chainId=eip155:56&projectId=${projectId}`,
+        '100': `https://rpc.walletconnect.org/v1/?chainId=eip155:100&projectId=${projectId}`,
+        '137': `https://rpc.walletconnect.org/v1/?chainId=eip155:137&projectId=${projectId}`,
+        '246': `https://rpc.walletconnect.org/v1/?chainId=eip155:246&projectId=${projectId}`,
+        '8453': `https://rpc.walletconnect.org/v1/?chainId=eip155:8453&projectId=${projectId}`,
+        '42161': `https://rpc.walletconnect.org/v1/?chainId=eip155:42161&projectId=${projectId}`,
+        '73799': `https://rpc.walletconnect.org/v1/?chainId=eip155:73799&projectId=${projectId}`,
+        '11155111': `https://rpc.walletconnect.org/v1/?chainId=eip155:11155111&projectId=${projectId}`
       },
       showQrModal: true
     },
