@@ -53,46 +53,44 @@ const validationStrategySymbolsString = computed(() => {
   return `(${symbols.join(', ')})`;
 });
 
-async function voteShutter() {
-  isLoadingShutter.value = true;
-  const encryptedChoice = await shutterEncryptChoice(
-    JSON.stringify(props.selectedChoices),
-    props.proposal.id
-  );
-  isLoadingShutter.value = false;
-
-  if (!encryptedChoice) return null;
-  return vote({
-    proposal: props.proposal,
-    choice: encryptedChoice,
-    privacy: 'shutter',
-    reason: reason.value
-  });
-}
-
-async function vote(payload) {
-  return send(props.space, 'vote', payload);
-}
-
 async function handleSubmit() {
-  let result: { id: string; ipfs?: string } | null = null;
-  if (props.proposal.privacy === 'shutter') result = await voteShutter();
-  else
-    result = await vote({
-      proposal: props.proposal,
-      choice: props.selectedChoices,
-      reason: reason.value
-    });
+  try {
+    let result: { id: string; ipfs?: string } | null = null;
 
-  console.log('Result', result);
+    if (props.proposal.privacy === 'shutter') {
+      isLoadingShutter.value = true;
+      const encryptedChoice = await shutterEncryptChoice(
+        JSON.stringify(props.selectedChoices),
+        props.proposal.id
+      );
+      isLoadingShutter.value = false;
 
-  if (result?.id) {
-    const waitingForSigners = !result.ipfs;
-    emit('openPostVoteModal', waitingForSigners);
-    if (!waitingForSigners) emit('reload');
-    addVotedProposalId(props.proposal.id);
+      if (!encryptedChoice) return null;
+
+      result = await send(props.space, 'vote', {
+        proposal: props.proposal,
+        choice: encryptedChoice,
+        privacy: 'shutter',
+        reason: reason.value
+      });
+    } else {
+      result = await send(props.space, 'vote', {
+        proposal: props.proposal,
+        choice: props.selectedChoices,
+        reason: reason.value
+      });
+    }
+
+    if (result?.id) {
+      const waitingForSigners = !result.ipfs;
+      emit('openPostVoteModal', waitingForSigners);
+      if (!waitingForSigners) emit('reload');
+      addVotedProposalId(props.proposal.id);
+    }
+    emit('close');
+  } catch (e) {
+    console.error('Vote error:', e);
   }
-  emit('close');
 }
 
 async function loadVotingValidation() {
@@ -166,60 +164,38 @@ watch(
         <div class="mx-1">
           <div class="flex">
             <span class="mr-1 flex-auto text-skin-text" v-text="$t('choice')" />
-            <span
-              v-if="
-                proposal.type === 'approval' &&
-                Array.isArray(selectedChoices) &&
-                selectedChoices?.length === 0
-              "
-              class="text-right"
-            >
+            <span v-if="
+              proposal.type === 'approval' &&
+              Array.isArray(selectedChoices) &&
+              selectedChoices?.length === 0
+            " class="text-right">
               Blank vote
             </span>
-            <span
-              v-else
-              v-tippy="{
-                content:
-                  format(proposal, selectedChoices).length > 30
-                    ? format(proposal, selectedChoices)
-                    : null
-              }"
-              class="ml-4 truncate text-right"
-            >
+            <span v-else v-tippy="{
+              content:
+                format(proposal, selectedChoices).length > 30
+                  ? format(proposal, selectedChoices)
+                  : null
+            }" class="ml-4 truncate text-right">
               {{ format(proposal, selectedChoices) }}
             </span>
           </div>
 
           <div class="flex">
-            <span
-              class="mr-1 flex-auto text-skin-text"
-              v-text="$t('snapshot')"
-            />
-            <BaseLink
-              :link="explorerUrl(proposal.network, proposal.snapshot, 'block')"
-              class="float-right"
-            >
+            <span class="mr-1 flex-auto text-skin-text" v-text="$t('snapshot')" />
+            <BaseLink :link="explorerUrl(proposal.network, proposal.snapshot, 'block')" class="float-right">
               {{ formatNumber(Number(proposal.snapshot)) }}
             </BaseLink>
           </div>
 
-          <div
-            v-if="
-              proposal.validation?.name !== 'any' &&
-              isValidationAndPowerLoaded &&
-              !isValidationAndPowerLoading
-            "
-            class="flex"
-          >
-            <span
-              class="mr-1 flex-auto text-skin-text"
-              v-text="$t('votingValidation.label')"
-            />
+          <div v-if="
+            proposal.validation?.name !== 'any' &&
+            isValidationAndPowerLoaded &&
+            !isValidationAndPowerLoading
+          " class="flex">
+            <span class="mr-1 flex-auto text-skin-text" v-text="$t('votingValidation.label')" />
             <div class="flex items-center gap-1">
-              <span
-                v-if="hasVotingValidationFailed"
-                class="flex items-center gap-1"
-              >
+              <span v-if="hasVotingValidationFailed" class="flex items-center gap-1">
                 <i-ho-exclamation-circle class="text-sm text-red" />
                 {{ $t('failed') }}
               </span>
@@ -232,29 +208,22 @@ watch(
           </div>
 
           <div class="flex">
-            <span
-              class="mr-1 flex-auto text-skin-text"
-              v-text="$t('votingPower')"
-            />
+            <span class="mr-1 flex-auto text-skin-text" v-text="$t('votingPower')" />
             <span v-if="hasVotingPowerFailed" class="flex items-center gap-1">
               <i-ho-exclamation-circle class="text-sm text-red" />
               {{ $t('failed') }}
             </span>
-            <span
-              v-else-if="
-                isValidationAndPowerLoaded && !isValidationAndPowerLoading
-              "
-              v-tippy="{
+            <span v-else-if="
+              isValidationAndPowerLoaded && !isValidationAndPowerLoading
+            " v-tippy="{
                 content: votingPowerByStrategy
                   .map(
                     (score, index) =>
-                      `${formatCompactNumber(votingPower === 0 ? 0 : score)} ${
-                        symbols[index]
+                      `${formatCompactNumber(votingPower === 0 ? 0 : score)} ${symbols[index]
                       }`
                   )
                   .join(' + ')
-              }"
-            >
+              }">
               {{ formatCompactNumber(votingPower) }}
               {{ shorten(proposal.symbol || space.symbol, 'symbol') }}
             </span>
@@ -262,21 +231,11 @@ watch(
           </div>
         </div>
 
-        <MessageWarningGnosisNetwork
-          v-if="isGnosisAndNotSpaceNetwork"
-          :space="space"
-          action="vote"
-        />
-        <template
-          v-else-if="isValidationAndPowerLoaded && !isValidationAndPowerLoading"
-        >
+        <MessageWarningGnosisNetwork v-if="isGnosisAndNotSpaceNetwork" :space="space" action="vote" />
+        <template v-else-if="isValidationAndPowerLoaded && !isValidationAndPowerLoading">
           <!-- Voting power messages -->
           <BaseMessageBlock v-if="hasVotingPowerFailed" level="warning">
-            <i18n-t
-              keypath="votingPowerFailedMessage"
-              tag="span"
-              scope="global"
-            >
+            <i18n-t keypath="votingPowerFailedMessage" tag="span" scope="global">
               <template #help>
                 <BaseLink :link="SNAPSHOT_HELP_LINK">Help Center</BaseLink>
               </template>
@@ -284,31 +243,19 @@ watch(
           </BaseMessageBlock>
 
           <!-- Voting validation messages -->
-          <BaseMessageBlock
-            v-else-if="hasVotingValidationFailed"
-            level="warning"
-          >
+          <BaseMessageBlock v-else-if="hasVotingValidationFailed" level="warning">
             <!-- {{ t('votingValidationFailedMessage') }} -->
 
-            <i18n-t
-              keypath="votingValidationFailedMessage"
-              tag="span"
-              scope="global"
-            >
+            <i18n-t keypath="votingValidationFailedMessage" tag="span" scope="global">
               <template #help>
                 <BaseLink :link="SNAPSHOT_HELP_LINK">Help Center</BaseLink>
               </template>
             </i18n-t>
           </BaseMessageBlock>
-          <MessageWarningValidation
-            v-else-if="!isValidVoter && proposal.validation?.name"
-            context="voting"
-            :space-id="proposal.space.id"
-            :validation-name="proposal.validation.name"
+          <MessageWarningValidation v-else-if="!isValidVoter && proposal.validation?.name" context="voting"
+            :space-id="proposal.space.id" :validation-name="proposal.validation.name"
             :validation-params="proposal.validation?.params || {}"
-            :min-score="proposal.validation?.params?.minScore || 0"
-            :symbol="validationStrategySymbolsString"
-          />
+            :min-score="proposal.validation?.params?.minScore || 0" :symbol="validationStrategySymbolsString" />
           <!-- No voting power -->
           <BaseMessageBlock v-else-if="votingPower === 0" level="warning">
             {{
@@ -316,20 +263,13 @@ watch(
                 blockNumber: formatNumber(Number(proposal.snapshot))
               })
             }}
-            <BaseLink
-              link="https://github.com/snapshot-labs/snapshot/discussions/767"
-            >
-              {{ $t('learnMore') }}</BaseLink
-            >
+            <BaseLink link="https://github.com/snapshot-labs/snapshot/discussions/767">
+              {{ $t('learnMore') }}</BaseLink>
           </BaseMessageBlock>
           <!-- Reason field -->
           <div v-else-if="props.proposal.privacy !== 'shutter'" class="flex">
-            <TextareaAutosize
-              v-model="reason"
-              :max-length="140"
-              class="s-input !rounded-3xl"
-              :placeholder="$t('comment.placeholder')"
-            />
+            <TextareaAutosize v-model="reason" :max-length="140" class="s-input !rounded-3xl"
+              :placeholder="$t('comment.placeholder')" />
           </div>
         </template>
       </div>
@@ -338,21 +278,14 @@ watch(
         <TuneButton type="button" class="w-full" @click="$emit('close')">
           {{ $t('cancel') }}
         </TuneButton>
-        <TuneButton
-          :disabled="
-            votingPower === 0 ||
-            !isValidVoter ||
-            isSending ||
-            isLoadingShutter ||
-            isGnosisAndNotSpaceNetwork ||
-            isValidationAndPowerLoading
-          "
-          :loading="isSending || isLoadingShutter"
-          class="w-full"
-          primary
-          data-testid="confirm-vote-button"
-          @click="handleSubmit"
-        >
+        <TuneButton :disabled="votingPower === 0 ||
+          !isValidVoter ||
+          isSending ||
+          isLoadingShutter ||
+          isGnosisAndNotSpaceNetwork ||
+          isValidationAndPowerLoading
+          " :loading="isSending || isLoadingShutter" class="w-full" primary data-testid="confirm-vote-button"
+          @click="handleSubmit">
           {{ $t('confirm') }}
         </TuneButton>
       </div>
